@@ -43,6 +43,16 @@ function saveText(){
 		
 		localStorage.setItem("note", document.getElementById('note').innerHTML);
 	}
+	
+	if(document.getElementById('note1').innerText != document.getElementById('note-title').value){
+        document.getElementById('note1').innerText = document.getElementById('note-title').value
+    }
+    else if(document.getElementById('note1').innerText == document.getElementById('note-title').value){
+        localStorage.setItem(document.getElementById('note-title').value, document.getElementById('note').innerHTML);	
+    }
+    else if(document.getElementById('note1').innerText == "Note 2" && document.getElementById('note1').innerText != document.getElementById('note-title').value){
+        document.getElementById('note2').innerText = document.getElementById('note-title').value
+    }
 	updateShares();
 }
   
