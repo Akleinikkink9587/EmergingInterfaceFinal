@@ -37,7 +37,7 @@ window.onload = function () {
 };
 
 function newNote() {
-    window.location.href = "/index.html?s=" + document.getElementById('noteSearch').value;;
+    window.location.href = "?s=" + document.getElementById('noteSearch').value;;
 }
 
 function loadNote(id) {
