@@ -12,10 +12,11 @@
 <body onload="setup()">
     <div id="navBar">
         <div class="navBar-table">
-                <div><button id="newNote"  onclick="alert('not implemented')">New Note</button></div>
-                <div><button>Note 1</button></div>
-                <div><button>Note 2</button></div>
-                <div><button>Note 3</button></div>
+                <div><button id="newNote" onclick="newNote()">New Note</button></div>
+                <div><button id="note1" onclick="displayNote1()">Note 1</button></div>
+                <div><button id="note2" onclick="displayNote2()">Note 2</button></div>
+                <div><button id ="note3" onclick="displayNote3()">Note 3</button></div>
+                <div hidden id="note4"><button onclick="displayNote()">New Note</button></div>
         </div>
     </div>
 
@@ -44,18 +45,18 @@
         </div>
 
         <div class="item-title">
-            <input type="text" id="note-title" value="test" onkeyup="saveText()"/>
+            <input type="text" id="note-title" value="test" />
         </div>
 
         <div class="item-note">
-            <div id="note" contenteditable="true" onkeyup="saveText()">test</div>
+            <div id="note" contenteditable="true" >test</div>
 
         </div>
         <div class="item-footer footer">
             <div class="footer-table">
 				<div id='twitterShare'></div>
-                <div><button id="delete" onclick="alert('not implemented')">Delete</button></div>   
-                <div><button id="save" onclick="alert('not implemented')">Save</button></div>         
+                <div><button id="delete" onclick="deleteNote()">Delete</button></div>   
+                <div><button id="save" onclick="saveText()">Save</button></div>         
             </div>
 
         </div>
