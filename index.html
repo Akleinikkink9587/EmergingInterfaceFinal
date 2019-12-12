@@ -9,23 +9,20 @@
     <script type="text/javascript" src="scripts.js"></script>
 </head>
 
-<body onload="setup()">
+<body>
     <div id="navBar">
         <div class="navBar-table">
-                <div><button id="newNote"  onclick="alert('not implemented')">New Note</button></div>
-                <div><button>Note 1</button></div>
-                <div><button>Note 2</button></div>
-                <div><button>Note 3</button></div>
+            <div><button id="newNote" onclick="newNote()">New Note</button></div>
+            <div><input type="search" id="noteSearch" oninput="loadNav()"></div>
         </div>
     </div>
-
 
     <div id="main">
         <button id="openNav" class="item-nav header" onclick="openNav()">&#9776;</button>
         <button id="closeNav" class="item-nav header" onclick="closeNav()">X</button>
 
         <div class="item-header header header-title">
-            <h1>Notes 101</h1>
+            <h1 id="title">Notes 101</h1>
         </div>
 
         <div id="edit-option" class="item-options">
@@ -39,23 +36,23 @@
             <img class="edit-option-icon" src="images/Left.png" onclick="change('justifyLeft')">
             <img class="edit-option-icon" src="images/center.png" onclick="change('justifyCenter')">
             <img class="edit-option-icon" src="images/right.png" onclick="change('justifyRight')">
+            <!--not working:
             <img class="edit-option-icon" src="images/numbered.png" onclick="change('insertOrderedList')">
             <img class="edit-option-icon" src="images/list.png" onclick="change('insertUnorderedList')">
+            -->
         </div>
 
         <div class="item-title">
-            <input type="text" id="note-title" value="test" onkeyup="saveText()"/>
+            <input type="text" id="note-title" onkeyup="saveNote()" />
         </div>
 
         <div class="item-note">
-            <div id="note" contenteditable="true" onkeyup="saveText()">test</div>
-
+            <div id="note" contenteditable="true" onkeyup="saveNote()"></div>
         </div>
         <div class="item-footer footer">
             <div class="footer-table">
-				<div id='twitterShare'></div>
-                <div><button id="delete" onclick="alert('not implemented')">Delete</button></div>   
-                <div><button id="save" onclick="alert('not implemented')">Save</button></div>         
+                <div><button id="delete" onclick="deleteNote()">Delete</button></div>
+                <div><button id="twitter" onclick="twitter()" >Share on Twitter</button></div>
             </div>
 
         </div>

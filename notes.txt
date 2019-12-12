@@ -25,3 +25,22 @@ Options:
 //https://stackoverflow.com/questions/29973357/how-do-you-format-code-in-visual-studio-code-vscode
 //https://stackoverflow.com/questions/18665171/how-to-make-the-main-content-div-fill-height-of-screen-with-css
 //http://jsfiddle.net/mdares/a8VVw/
+
+VM1614:1 Console was cleared
+undefined
+var template = document.createElement('template')
+undefined
+template.innerHTML = '<div class="noteList"><button>Note 1</button></div>'
+"<div class="noteList"><button>Note 1</button></div>"
+nodes = template.content.childNodes
+NodeList [div.noteList]
+document.getElementsByClassName('navBar-table')
+HTMLCollection [div.navBar-table]0: div.navBar-tablelength: 1__proto__: HTMLCollection
+document.getElementsByClassName('navBar-table')[0].appendChild(nodes)
+VM2062:1 Uncaught TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.
+    at <anonymous>:1:52
+(anonymous) @ VM2062:1
+document.getElementsByClassName('navBar-table')[0].appendChild(nodes[0])
+<div class=​"noteList">​…​</div>​
+document.getElementsByClassName('noteList')[0].remove()
+undefined
