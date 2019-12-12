@@ -40,9 +40,21 @@ function openNav() {
 function saveText(){
 	if(typeof localStorage != "undefined"){
         localStorage.setItem(document.getElementById('note-title').value, document.getElementById('note').innerHTML);	
-		//localStorage.setItem("note", document.getElementById('note').innerHTML);
     }
-	updateShares();
+    //something along these lines to change notes to proper name
+
+    if(document.getElementById('note1').innerText == "Note 1"){
+        document.getElementById('note1').innerText = document.getElementById('note-title').value
+    }
+    else if(document.getElementById('note2').innerText == "Note 2" && document.getElementById('note1').innerText !="Note 1" ){
+        document.getElementById('note2').innerText = document.getElementById('note-title').value
+    }
+    else if(document.getElementById('note3').innerText == "Note 3" && document.getElementById('note2').innerText !="Note 2" && document.getElementById('note1').innerText !="Note 1"){
+        document.getElementById('note3').innerText = document.getElementById('note-title').value
+    }
+
+    alert("Note saved to Local Storage!");
+    updateShares();
 }
   
 function restoreText(){
@@ -62,18 +74,48 @@ function deleteNote(){
 		localStorage.removeItem(document.getElementById('note-title').value, document.getElementById('note').innerHTML);
         document.getElementById('note-title') = "";
         document.getElementById('note') = "";
-		//localStorage.setItem("note", document.getElementById('note').innerHTML);
-	}
+        //localStorage.setItem("note", document.getElementById('note').innerHTML);
+    }
+    
+    alert("Note Deleted!");
 }
 
-function displayNote(){
+/*function displayNote(){
     var x = localStorage.getItem(document.getElementById('note-title'));
 
     document.getElementById("note-title").innerHTML = x;
-}
+}*/
 
 function newNote(){
     document.getElementById('note-title').value = "";
     document.getElementById('note').innerHTML = "";
 
+       /* Hide/Show Divs ??
+       
+       var x = document.getElementById("navBar");
+        if (x.style.display === "none") {
+          x.style.display = "none";
+        } else {
+          x.style.display = "block";
+        }*/
+    
+
+}
+
+function displayNote1(){
+    document.getElementById('note-title').value = document.getElementById('note1').innerText;
+    document.getElementById('note').innerHTML = localStorage.getItem(document.getElementById('note1').innerText)
+    //document.getElementById('note1').innerText = document.getElementById('note-title').value
+}
+
+function displayNote2(){
+    document.getElementById('note-title').value = document.getElementById('note2').innerText;
+    document.getElementById('note').innerHTML = localStorage.getItem(document.getElementById('note2').innerText)
+    //document.getElementById('note1').innerText = document.getElementById('note-title').value
+}
+
+function displayNote3(){
+    document.getElementById('note-title').value = document.getElementById('note3').innerText;
+    document.getElementById('note').innerHTML = localStorage.getItem(document.getElementById('note3').innerText)
+    //document.getElementById('note1').innerText = document.getElementById('note-title').value
 }
